@@ -9,11 +9,49 @@ module.exports = (sequelize) => {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
+      autoincrement: true
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    description: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
+    parent_platforms: {
+        type: DataTypes.ARRAY(DataTypes.ENUM('Xbox', 'PlayStation', 'PC', 'Android', 'Nintendo')),
+        allowNull: false,
+      },
+    image: {
+        type: DataTypes.STRING,
+        validate:{
+          isUrl: true, 
+        },
+        allowNull: false,
+      },
+      releasedDate: {
+        type: DataTypes.DATEONLY,
+        validate:{
+          isDate: true,  
+        },
+        allowNull: false,
+      },
+    rating: {
+        type: DataTypes.FLOAT,
+        validate:{
+          max: 5.0,
+          min: 0,
+        },
+        allowNull: false,
+      },
+    created:{
+        type: DataTypes.BOOLEAN,
+        defaultValue: true,
+    },
     
+  },
+   {
+    timestamps: false
   });
 };
