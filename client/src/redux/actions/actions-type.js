@@ -1,0 +1,19 @@
+export const GET_GAMES = 'GET_GAMES'
+export const GET_GAMES_FAILURE= "GET_GAMES_FAILURE"
+//get detail
+export const GET_GAME_DETAILS = 'GET_GAME_DETAILS'
+export const GET_DETAILS_FAILURE= "GET_DETAILS_FAILURE"
+export const CLEAR_GAME_DETAILS = 'CLEAR_GAME_DETAILS'
+//post game
+export const POST_GAME = 'POST_GAME'
+export const CLEAN_POST_GAME = 'CLEAR_POST_GAME'
+
+export const SEARCH_GAMES = 'SEARCH_GAMES'
+export const CLEAR_SEARCH_GAMES = 'CLEAR_SEARCH_GAMES'
+export const SEARCH_GAMES_FAILURE = 'SEARCH_GAMES_FAILURE'
+//get genres
+export const GET_GENRES = 'GET_GENRES'
+export const CLEAR_GENRES = 'CLEAR_GENRES'
+export const GET_GENRES_FAILURE= "GET_GENRES_FAILURE"
+
+export const FILTER_GAMES = 'FILTER_GAMES'

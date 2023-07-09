@@ -1,0 +1,42 @@
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 17rem;
+    height: 20rem;
+    background-color: #a141fc;
+    background-image: linear-gradient(to top, #0250c5 0%, #d43f8d 100%);
+    color: #fff;
+    border-radius: 3rem;
+    text-decoration: none;
+}
+
+.imgCard{
+    width: 17rem;
+}
+
+.imgCard img{
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    height: 210px;
+    object-fit: cover;
+    object-position: top center;
+}
+
+/* .rating{
+    right: 6px;
+    font-size: medium;
+    background-color: transparent;
+    border-radius: 5px ;
+    border: solid 2px;
+    padding: 5px;
+} */
+
+.NavLink{
+    text-decoration: none;
+}
+
+.description{
+    color: #fff;
+    padding-top: 12px;
+}

@@ -1,0 +1,13 @@
+.nav {
+  
+    background-color: rgba(19, 15, 53, 0.808);
+    box-shadow: 1px 1px 2px rgba(151, 206, 76, 0.788);
+    padding: 1em;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+   
+  }

@@ -4,10 +4,10 @@ const apiAllCleaner = ( dataApi ) => {
             id: game.id,
             name: game.name,
             image: game.background_image,
-            parent_platforms: game.parent_platforms.map(platforms => platforms.platform.name),
+            parent_platforms: game.parent_platforms?.map(platforms => platforms.platform.name),
             releaseDate: game.released,
             rating: game.rating, 
-            genres: game.genres.map(genre => {return {
+            genres: game.genres?.map(genre => {return {
                 id: genre.id,
                 name: genre.name,
             }}),

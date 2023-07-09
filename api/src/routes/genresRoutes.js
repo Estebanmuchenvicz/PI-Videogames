@@ -8,7 +8,7 @@ const genresByIdHandlers = require('../handlers/GenresHandlers/getGenresId')
 
 
 //ruta get de Genre de la bd
-genresRoutes.get('/genres/bd', getGenderBdHandler)
-genresRoutes.get('/genres/bd/:id', genresByIdHandlers)
-genresRoutes.get('/genres/api', genresApiHandlers )
+genresRoutes.get('/bd', getGenderBdHandler)
+genresRoutes.get('/bd/:id', genresByIdHandlers)
+genresRoutes.get('/api', genresApiHandlers )
 module.exports = genresRoutes

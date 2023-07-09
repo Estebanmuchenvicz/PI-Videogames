@@ -6,15 +6,15 @@ const postGame = require('../handlers/VideogamesHandlers/postGamesHandler');
 const {deleteGameHandler} = require('../handlers/VideogamesHandlers/deleteGameHandlers')
 
 //Routes GET
-videogamesRoutes.get('/videogames', allGamesHandler);
-videogamesRoutes.get('/videogames/:id', gamesByIdHandlers);
+videogamesRoutes.get('/', allGamesHandler);
+videogamesRoutes.get('/:id', gamesByIdHandlers);
 
 //Routes POST
-videogamesRoutes.post('/videogames', postGame);
+videogamesRoutes.post('/post', postGame);
 
 
 //Routes delete
-videogamesRoutes.delete('/videogames', deleteGameHandler);
+videogamesRoutes.delete('/delete/:id', deleteGameHandler);
 
 
 
