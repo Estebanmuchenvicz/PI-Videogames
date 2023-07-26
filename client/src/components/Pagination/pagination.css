@@ -1,0 +1,33 @@
+.pagination{
+  margin-top: 30px;
+}
+
+.prev,
+.next {
+    background-color: rgba(19, 15, 53, 0.808);
+  /* background-color: #7700ff79; */
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  margin-right: 5px;
+  border-radius: 15px;
+}
+
+.pagination-button.active {
+  background-color: #7700ff79;
+  color: #fff;
+  padding: 10px 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.pagination-button {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 6px 10px;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+  }

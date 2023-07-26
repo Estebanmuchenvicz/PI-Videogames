@@ -10,6 +10,12 @@ import {
   SEARCH_GAMES,
   SEARCH_GAMES_FAILURE,
   CLEAR_SEARCH_GAMES,
+  POST_GAME,
+  FILTER_CREATED,
+  FILTER_GENRE,
+  FILTER_ORDER,
+  FILTER_PLATFORM,
+  FILTER_RATING
 } from "./actions-type";
 import axios from "axios";
 
@@ -117,4 +123,62 @@ export const clearSearch = ()=>{
     return{
         type: CLEAR_SEARCH_GAMES
     }
+}
+
+//POST GAME
+export const createGame = ( game ) => {
+  const url = "/videogames/post";
+  return async function( dispatch ) {
+      try {
+        const response = await axios.post( url, game)
+          const message =  response.data.menssage
+          alert(message) 
+          return dispatch({ 
+              type: POST_GAME,
+              
+          })
+      } catch (error) {
+        dispatch({
+          type: SEARCH_GAMES_FAILURE,
+          payload: error.message,
+        });
+      }
+  }
+};
+
+
+//FILTERS
+export const filterCreated = (payload) =>{
+  return{
+    type : FILTER_CREATED,
+    payload
+  }
+}
+
+export const filterGenre = (payload) =>{
+  return{
+    type : FILTER_GENRE,
+    payload
+  }
+}
+
+export const filterPlatform = (payload) =>{
+  return{
+    type : FILTER_PLATFORM,
+    payload
+  }
+}
+
+export const filterOrder = (payload) =>{
+  return{
+    type : FILTER_ORDER,
+    payload
+  }
+}
+
+export const filterRating = (payload) =>{
+  return{
+    type : FILTER_RATING,
+    payload
+  }
 }

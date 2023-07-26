@@ -1,0 +1,105 @@
+/* #Filtro{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    padding-top: 15px;
+}
+.genreFilter, .CreatedFilters, .platformFilter, .orderFilter{
+    position: relative;
+}
+.genreFilters, .orderFilterList, .createdFiltersList, .platformFilterList{
+    width: auto;
+    min-width: 150px;
+    padding: 10px 16px;
+    background-color: #c8ffd456;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #fff;
+}
+.genreOptions, .orderOptions, .origionOptions, .platformOptions{
+    color: #fff;
+    background-color: #301E67;
+}
+.genreOptionsAll, .orderOptionsD, .origionOptionsD, .platformOptionsD{
+    color: rgb(89, 89, 89);
+    background-color: #5B8FB9;
+}
+.btnReset{
+    position: absolute;
+    top: 2px;
+    right: -3px;
+    padding: 10px 10px;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 710px) {
+    #Filtro{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .genreFilters, .orderFilterList, .createdFiltersList, .platformFilterList{
+        width: 200px;
+        margin-bottom: 15px;
+    }
+} */
+#Filtro{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    padding-top: 15px;
+    background-color: #0000009c;
+}
+
+.filter-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-direction: column;
+  }
+  
+  .filter-select {
+    width: 160px;
+    min-width: 100px;
+    padding: 10px 16px;
+    background-color: rgba(19, 15, 53, 0.808);
+    border-radius: 8px 0px 0px 8px;
+    font-size: 14px;
+    color: #fff;
+  }
+
+  .Option-name{
+    color: rgb(89, 89, 89);
+    background-color: #5B8FB9;
+  }
+
+  .Option-select{
+    color: #fff;
+    background-color: #301E67;
+  }
+  
+  .filter-button {
+    width: auto;
+    padding: 10px 16px;
+    margin-top: 3px;
+    border-radius: 0px 8px 8px 0px;
+    background-color: rgba(19, 15, 53, 0.808);
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: 710px) {
+    #Filtro{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .genreFilters, .orderFilterList, .createdFiltersList, .platformFilterList{
+        width: 200px;
+        margin-bottom: 15px;
+    }
+}

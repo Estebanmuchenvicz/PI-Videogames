@@ -1,11 +1,11 @@
 const {Videogame} = require('../../db');
 const {Op} = require('sequelize')
 
-const createGame = async (name, description,releasedDate, parent_platforms,image,rating,genres) => {
+const createGame = async (name, description,releaseDate, parent_platforms,image,rating,genres) => {
   if (
     !name ||
     !description ||
-    !releasedDate ||
+    !releaseDate ||
     !parent_platforms ||
     !image ||
     !rating
@@ -31,7 +31,7 @@ const createGame = async (name, description,releasedDate, parent_platforms,image
     description,
     parent_platforms,
     image,
-    releasedDate,
+    releaseDate,
     rating,
   });
 

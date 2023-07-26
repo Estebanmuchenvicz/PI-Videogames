@@ -17,6 +17,7 @@ const gamesById = async (id, filter)=>{
         const response = await Videogame.findByPk(id,{
             include:{
                 model: Genre,
+                as: 'genres',
                 attibutes:["id", "name"],
                 through: {
                     attributes: [],

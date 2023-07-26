@@ -4,8 +4,7 @@
     overflow: hidden;
     width: 17rem;
     height: 20rem;
-    background-color: #a141fc;
-    background-image: linear-gradient(to top, #0250c5 0%, #d43f8d 100%);
+    background-image: linear-gradient(to top, rgba(2, 80, 197, 0.5) 0%, rgba(212, 63, 141, 0.5) 100%);
     color: #fff;
     border-radius: 3rem;
     text-decoration: none;
@@ -23,14 +22,26 @@
     object-position: top center;
 }
 
-/* .rating{
-    right: 6px;
-    font-size: medium;
-    background-color: transparent;
-    border-radius: 5px ;
-    border: solid 2px;
-    padding: 5px;
-} */
+.rating {
+    position: absolute; /* Coloca el rating en posición absoluta */
+    top: 0;
+    right: 0;
+    padding: 5px 10px; /* Ajusta el espaciado para que se vea bien */
+    background-color: rgba(0, 0, 0, 0.7); /* Agrega un fondo oscuro semi-transparente */
+    border-radius: 0 0 0 20px; /* Dale un efecto 3D redondeado en la esquina inferior izquierda */
+    transform: translateX(100%) translateY(0); /* Añade una transición para el efecto 3D */
+    transition: transform 0.3s ease;
+}
+
+.cardContainer:hover .rating {
+    transform: translateX(0) translateY(0); /* Muestra el rating en su posición original al hacer hover */
+}
+
+.rating h4{
+    color: #707070;
+}
+
+
 
 .NavLink{
     text-decoration: none;
@@ -39,4 +50,32 @@
 .description{
     color: #fff;
     padding-top: 12px;
+    
 }
+
+
+
+  
+.cardContainer:hover{
+    box-shadow: 3px 3px 5px rgba(83, 14, 173, 0.788);
+    scale: 1.1;
+}
+
+
+.starFilled {
+    /* Establece el color de las estrellas llenas a amarillo */
+  color: yellow;
+  }
+  
+  .starEmpty {
+    /* Establece el color de las estrellas vacías a blanco */
+  color: white;
+  }
+  
+  .starHalf {
+    /* Establece el color de las estrellas medias a amarillo */
+  color: yellow;
+  
+  }
+
+  

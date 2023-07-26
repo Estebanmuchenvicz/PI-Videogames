@@ -1,0 +1,128 @@
+.container {
+    max-width: 500px;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: rgba(19, 15, 53, 0.808);
+    border-radius: 12px;
+  }
+
+  .container h2{
+    color: #ffffff;
+  }
+
+  .buttonDelete{
+    background-color: transparent;
+    border: none;
+    color: #fa0606;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 3px;
+  }
+  
+  .contenedor{
+    display: flex;
+    padding: 8px;
+    
+  }
+  .genresOption{
+    border: 1px solid #00e0af;
+    color: #ffffff;
+    margin: 5px;
+  }
+  
+  .formGroup {
+    margin-bottom: 15px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #5e5e5e;
+  }
+  
+  input,
+  textarea,
+  select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #5e5e5e;
+  }
+
+  textarea{
+    width: 100%;
+    height: 200px;
+  }
+  select[multiple] {
+    height: 100px;
+  }
+
+  /* Estilos para el input de tipo range */
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  background: #fff; /* Barra blanca */
+  outline: none;
+  opacity: 0.7;
+  transition: opacity .2s;
+  border-radius: 5px;
+}
+
+/* Cambia el estilo del pulgar (el círculo) de la barra */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #4a00e0; /* Deslizador en color #4a00e0 */
+  cursor: pointer;
+}
+
+/* Cambia el estilo del pulgar (el círculo) cuando se mueve el mouse por encima */
+input[type="range"]:hover::-webkit-slider-thumb {
+  background: #3200a3; /* Cambia el color del deslizador al pasar el mouse */
+}
+
+/* Cambia el estilo del pulgar (el círculo) cuando se hace clic */
+input[type="range"]:active::-webkit-slider-thumb {
+  background: #290079; /* Cambia el color del deslizador cuando se hace clic */
+}
+
+/* Estilos para el valor del rating */
+span {
+  color: #fff; /* Texto en blanco */
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+
+  
+  button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4a00e0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  .error {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  
+    max-width: 600px;
+    min-width: 300px;
+  
+    color: #cf2e2e;
+  }
+  
+  .error p {
+    margin: 0.75rem;
+  }
+  
+  

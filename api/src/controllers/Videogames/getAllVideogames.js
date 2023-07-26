@@ -66,6 +66,7 @@ const getAllVideoGames = async () =>{
     const bdGames = await Videogame.findAll({
         include:{
             model: Genre,
+            as: 'genres',
             attibutes:["id", "name"],
             through: {
                 // y de la tabla intermedia.....

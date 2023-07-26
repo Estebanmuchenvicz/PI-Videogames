@@ -3,11 +3,81 @@
     background-color: rgba(19, 15, 53, 0.808);
     box-shadow: 1px 1px 2px rgba(151, 206, 76, 0.788);
     padding: 1em;
-    width: 100%;
+    /* width: 100%; */
     display: flex;
-    flex-flow: row wrap;
     align-items: center;
     justify-content: space-between;
     height: 70px;
    
   }
+
+
+
+  .btnCreate {
+    min-width: 110px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: 2px solid #212529;
+    background: #212529;
+  }
+  .btnCreate:hover {
+    background: #fff;
+    color: #212529
+  }
+
+  .logo{
+    color: #817f05;
+    font-family: 'Bungee Shade', cursive;
+    font-size: 25px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .link{
+    text-decoration: none;
+  }
+  
+
+  /* Media Query for Mobile Devices */
+@media screen and (max-width: 767px) {
+  .nav {
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    padding: 0.5em;
+  }
+
+  .logo {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .btnCreate {
+    margin-top: 10px;
+    min-width: 100px;
+    height: 35px;
+    font-size: 14px;
+  }
+}
+
+/* Additional Media Query for Smaller Mobile Devices (optional) */
+@media screen and (max-width: 479px) {
+  .logo {
+    font-size: 18px;
+  }
+
+  .btnCreate {
+    min-width: 90px;
+    height: 30px;
+    font-size: 12px;
+  }
+}
+  

@@ -18,6 +18,7 @@ function Cards({ games,}) {
           rating={game.rating}
           parent_platforms={game.parent_platforms}
           genres={game.genres}
+          create={game.created}
         />
       ))}
     </div>

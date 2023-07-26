@@ -20,7 +20,7 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
     parent_platforms: {
-        type: DataTypes.ARRAY(DataTypes.ENUM('Xbox', 'PlayStation', 'PC', 'Android', 'Nintendo')),
+        type: DataTypes.ARRAY(DataTypes.ENUM('Xbox', 'PlayStation', 'Pc', 'Android', 'Nintendo')),
         allowNull: false,
       },
     image: {
@@ -30,14 +30,14 @@ module.exports = (sequelize) => {
         },
         allowNull: false,
       },
-      releasedDate: {
+      releaseDate: {
         type: DataTypes.DATEONLY,
         validate:{
           isDate: true,  
         },
         allowNull: false,
       },
-    rating: {
+      rating: {
         type: DataTypes.FLOAT,
         validate:{
           max: 5.0,

@@ -34,9 +34,10 @@ const apiIdCleaner = ( dataApi ) => {
 }
 
 const apiGenresCleaner = ( dataApi ) => {
-    const genresApi = dataApi.map(genre => {
+    const genresApi = dataApi?.map(genre => {
         return {
           name: genre.name,
+        //   id: genre.id
           
         };
       });

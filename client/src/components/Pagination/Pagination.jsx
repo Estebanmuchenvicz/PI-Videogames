@@ -1,7 +1,8 @@
 import React from "react";
+import './pagination.css'
 
 function Pagination({ currentPage, totalPages, onPageChange }) {
-//   const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
+
 
   const maxDisplayedPages = 5;
   const halfMaxDisplayedPages = Math.floor(maxDisplayedPages / 2);
@@ -35,7 +36,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
       {pageRange.map((pageNumber) => (
         <button
           key={pageNumber}
-          className={pageNumber === currentPage ? "active" : ""}
+          className={`pagination-button ${pageNumber === currentPage ? "active" : ""}`}
           onClick={() => onPageChange(pageNumber)}
         >
           {pageNumber}

@@ -26,6 +26,7 @@ const gamesByName = async (name) => {
     },
     include: {
       model: Genre,
+      as: 'genres',
       attibutes: ["id", "name"],
       through: {
         attributes: [],
