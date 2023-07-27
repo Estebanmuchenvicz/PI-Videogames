@@ -9,7 +9,7 @@ import SerarchResults from './pages/SearchResults/SerarchResults'
 import CreateGame from './components/Form/CreateGame';
 import Error404 from './pages/Error/Error404';
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:3001'
+axios.defaults.baseURL = 'https://pi-videogames-production-5eae.up.railway.app/'
 
 function App() {
   const location = useLocation()
