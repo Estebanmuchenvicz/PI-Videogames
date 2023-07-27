@@ -10,35 +10,41 @@ require("dotenv").config();
 const { API_KEY } = process.env;
 
 const gamesByName = async (name) => {
-  const lowercaseName = name.toLowerCase();
-  //consulta por nombre a API
-  const dataApi = (
-    await axios.get(
-      `https://api.rawg.io/api/games?search=${lowercaseName}&key=${API_KEY}`
-    )
-  ).data;
-  //llamo a la función le paso la data de la API para filtrarla
-  const apiGames = apiAllCleaner(dataApi);
 
-  const bdGames = await Videogame.findAll({
-    where: {
-      name: { [Op.iLike]: `%${name}%` },
-    },
-    include: {
-      model: Genre,
-      as: 'genres',
-      attibutes: ["id", "name"],
-      through: {
-        attributes: [],
+  try {
+    
+    const lowercaseName = name.toLowerCase();
+    //consulta por nombre a API
+    const dataApi = (
+      await axios.get(
+        `https://api.rawg.io/api/games?search=${lowercaseName}&key=${API_KEY}`
+      )
+    ).data;
+    //llamo a la función le paso la data de la API para filtrarla
+    const apiGames = apiAllCleaner(dataApi);
+  
+    const bdGames = await Videogame.findAll({
+      where: {
+        name: { [Op.iLike]: `%${name}%` },
       },
-    },
-  });
-
-  const response = [...bdGames, ...apiGames].slice(0, 15);
-
-  if (!response.length) throw new Error(`${name} no existe`);
-
-  return response;
+      include: {
+        model: Genre,
+        as: 'genres',
+        attibutes: ["id", "name"],
+        through: {
+          attributes: [],
+        },
+      },
+    });
+  
+    const response = [...bdGames, ...apiGames].slice(0, 15);
+  
+    
+    if (response.length === 0) return {message:`Ups! parece que el juego con name: ${name} no existe`};
+    return response;
+  } catch (error) {
+    throw error;
+  }
 };
 
 module.exports = {gamesByName};

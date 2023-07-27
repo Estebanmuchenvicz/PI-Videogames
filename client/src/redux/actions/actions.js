@@ -24,10 +24,11 @@ export const getGames = () => {
   const url = "/videogames";
   return async (dispatch) =>{
     try {
-      const games = await axios.get(url);
+      const response = await axios.get(url);
+      const games = response.data;
       return dispatch({
         type: GET_GAMES,
-        payload: games.data,
+        payload: games,
       });
     } catch (error) {
       dispatch({
@@ -113,7 +114,8 @@ export const getSearch = (name) => {
     } catch (error) {
       dispatch({
         type: SEARCH_GAMES_FAILURE,
-        payload: error.message,
+        payload: error.response.data.message,
+        
       });
     }
   };

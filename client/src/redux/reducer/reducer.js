@@ -63,14 +63,27 @@ const reducer = (state = initialState, { type, payload }) => {
         ...state,
         genreFilters:[],
     }
-    case SEARCH_GAMES: return{
-        ...state,
-        searchGames: payload,
+    case SEARCH_GAMES: 
+      if (typeof payload === "object" && payload.message) {
+        // Si 'payload' es un objeto con un mensaje de error, actualiza el estado 'error'
+        return {
+          ...state,
+          allGames: [],
+          error: payload.message,
+        };
+      } else {
+        // Si 'payload' es una lista de juegos válida, actualiza el estado 'allGames'
+        return {
+          ...state,
+          allGames: payload,
+          error: null,
+        };
+      }
         
-    }
+    
     case SEARCH_GAMES_FAILURE: return{
         ...state,
-        error: payload,
+        error: { message: payload, statusCode: null },
         
     }
     case CLEAR_SEARCH_GAMES: return{

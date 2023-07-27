@@ -12,13 +12,17 @@ function SearchBar() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    if (name.trim() === '') {
+      return; // Si está vacío, no se realiza ninguna acción
+    }
     navigate(`/games/${name}`);
     dispatch(getSearch(name));
     dispatch(clearSearch())
   };
 
   const handleChange = (event) => {
-    const regex = /^[a-zA-Z0-9]*$/;
+    const regex = /^[a-zA-Z0-9\s]*$/;
     const inputValue = event.target.value;
     if (regex.test(inputValue)) {
       setName(inputValue);

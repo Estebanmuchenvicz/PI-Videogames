@@ -7,7 +7,7 @@ function Footer(){
         <footer className={style.containerFooter}>
             <div>
                 <span className={style.credit}>
-                ©Copyright 2023 by Esteban Muchenvicz
+                ©2023 by Esteban Muchenvicz
                 </span>
             </div>
 

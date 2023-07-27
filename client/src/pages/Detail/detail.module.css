@@ -57,7 +57,7 @@
     width: fit-content;
     text-align: center;
     font-family: 'Rampart One', cursive;
-    font-size: calc(1em + 1vw);
+    font-size: 2.5vmin;
     background: -webkit-linear-gradient(
         rgba(63,94,251,1), 
         rgba(252,70,107,1) 100%
@@ -98,8 +98,7 @@
     color: #ffffff;
     margin-left: 2rem;
     margin-right: 2rem;
-    
-    
+    font-size: 0.3em;
     text-align: center;
 }
 
@@ -279,6 +278,10 @@ color: yellow;
     font-size: 1rem; /* Adjust the font size for mobile devices */
   }
 
+  .title{
+    font-size: 4vmin;
+  }
+
   /* Modify other styles as needed for mobile */
 }
 
@@ -294,6 +297,10 @@ color: yellow;
 
   .container h2 {
     font-size: 0.9rem; /* Further reduce the font size for smaller mobile devices */
+  }
+
+  .title{
+    font-size: calc(0.5em + 0.3vw);
   }
 
   /* Modify other styles as needed for smaller mobile devices */

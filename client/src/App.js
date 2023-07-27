@@ -7,6 +7,7 @@ import NavBar from './components/NavBar/NavBar';
 import Landing from './pages/LandingPage/Landing';
 import SerarchResults from './pages/SearchResults/SerarchResults'
 import CreateGame from './components/Form/CreateGame';
+import Error404 from './pages/Error/Error404';
 import axios from 'axios';
 axios.defaults.baseURL = 'http://localhost:3001'
 
@@ -16,6 +17,7 @@ function App() {
     <div className="App">
       {location.pathname !== '/' && <NavBar/>}
       <Routes>
+      <Route path='*' element={<Error404 />} />
       <Route path='/' element={<Landing/>}/>
       <Route path='/home' element={<Home/>}/>
       <Route path='/detail/:id' element={<Detail/>}/>

@@ -1,0 +1,32 @@
+/* styles.css */
+.errorContainer {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0d0d0d;
+  }
+  
+  .errorContent {
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 1.5rem;
+    margin: 10px 0;
+  }
+  
+  /* Puedes agregar estilos adicionales, como una imagen de fondo con temática de videojuegos */
+  .errorContainer {
+    background-image: url('../../img/Error404.png');
+    background-size: cover;
+    background-position: center;
+  }
+  

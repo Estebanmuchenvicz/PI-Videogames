@@ -13,7 +13,6 @@ import style from './home.module.css'
 function Home() {
   const dispatch = useDispatch();
   const allGames = useSelector((state) => state.allGames);
-  console.log(allGames.parent_platforms);
   const [currentPage, setCurrentPage] = useState(1);
   const gamesPerPage = 15;
 
