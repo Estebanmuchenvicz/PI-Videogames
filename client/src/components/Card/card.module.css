@@ -81,4 +81,10 @@
   
   }
 
+  @media screen and (max-width: 768px) {
+    .rating {
+        transform: translateX(0) translateY(0);
+    }
+}
+
   
