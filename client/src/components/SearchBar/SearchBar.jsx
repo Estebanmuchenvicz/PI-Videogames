@@ -3,6 +3,7 @@ import {getSearch, clearSearch} from "../../redux/actions/actions"
  import { useDispatch } from "react-redux";
 import {   useNavigate} from 'react-router-dom'
 import style from './search.module.css'
+import {AiOutlineSearch} from 'react-icons/ai'
 
 
 function SearchBar() {
@@ -40,7 +41,7 @@ function SearchBar() {
           onChange={handleChange}
           value={name}
         />
-        <button type="submit" className={style.searchButton}>Search</button>
+        <button type="submit" className={style.searchButton}><AiOutlineSearch/></button>
       </form>
     </div>
   );

@@ -68,14 +68,14 @@ const reducer = (state = initialState, { type, payload }) => {
         // Si 'payload' es un objeto con un mensaje de error, actualiza el estado 'error'
         return {
           ...state,
-          allGames: [],
+          searchGames: [],
           error: payload.message,
         };
       } else {
         // Si 'payload' es una lista de juegos válida, actualiza el estado 'allGames'
         return {
           ...state,
-          allGames: payload,
+          searchGames: payload,
           error: null,
         };
       }

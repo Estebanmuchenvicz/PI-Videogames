@@ -1,3 +1,11 @@
+.containerResults{
+    min-height: 100vh;
+
+}
 .results{
     color: #ffffff;
 }
+
+section {
+    flex-grow: 1;
+  }

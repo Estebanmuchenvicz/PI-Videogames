@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Landing() {
   return (
     <div className={style.container}>
-        <h1 className={style.title}>Welcome to</h1>
+        <h2 className={style.welcome}>Welcome to</h2>
         <h1 className={style.title}>Henrry Games</h1>
         <div>
         <Link to={'/home'}> 

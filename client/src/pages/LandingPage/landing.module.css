@@ -15,9 +15,17 @@
 }
 
 .title{
+    margin-top: 60px;
     color: #817f05;
     font-family: 'Bungee Shade', cursive;
     font-size: 72px;
+}
+
+.welcome{
+  padding-top: 60px;
+  color: #ffffff;
+  font-family: 'Rampart One', cursive;
+  font-size: 72px;
 }
 
 .btnStart {

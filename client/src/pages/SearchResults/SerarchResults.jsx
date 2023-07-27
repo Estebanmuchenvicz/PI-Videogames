@@ -37,7 +37,7 @@ function SerarchResults() {
 
 
   return (
-    <div>
+    <div className={style.containerResults}>
         <h2 className={style.results} > Results with {name}! </h2>
         {error ? (
         <div>

@@ -16,6 +16,7 @@ function App() {
   return (
     <div className="App">
       {location.pathname !== '/' && <NavBar/>}
+      < main className="main-content">
       <Routes>
       <Route path='*' element={<Error404 />} />
       <Route path='/' element={<Landing/>}/>
@@ -24,6 +25,7 @@ function App() {
       <Route path='/games/:name' element={<SerarchResults/>}/>
       <Route path='/creategame' element={<CreateGame/>}/>
       </Routes>
+      </main>
       {location.pathname !== '/' && <Footer/>}
     </div>
   );

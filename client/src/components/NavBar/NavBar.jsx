@@ -11,7 +11,7 @@ function NavBar() {
       </Link>
         <SearchBar/>
         <Link to='/creategame'>
-        <button className={style.btnCreate}>ADD GAME</button>
+        <button className={style.btnCreate}>➕ ADD GAME</button>
         </Link>
     </div>
   )

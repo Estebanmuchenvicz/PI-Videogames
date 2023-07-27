@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {getGenres, createGame} from '../../redux/actions/actions';
 import styles from './create.module.css';
 import { validateGame } from '../../utils/validate';
+import addGame from '../../img/addGame.png'
 
 function CreateGame() {
     const initState = {

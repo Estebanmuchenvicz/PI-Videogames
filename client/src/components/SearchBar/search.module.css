@@ -26,16 +26,19 @@
   .searchButton {
     border: 1px solid #0e0e0e;
     border-radius: 5px;
-    padding: 8px 16px;
-    font-size: 14px;
+    padding: 8px;
+    font-size: 16px;
     background-color: #7700ff79;
     color: #fff;
     cursor: pointer;
-    margin-top: 0;
+    margin-top: 9px;
   }
 
-  .SearchBar:hover:focus{
-    background-color: #ffffff;
-    color: #000000;
+  .SearchBar:hover{
+    background-color: #dadada;
     
+  }
+
+  .SearchBar:focus{
+    outline:none!important ;
   }
