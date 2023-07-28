@@ -2,15 +2,9 @@ const {Videogame} = require('../../db');
 const {Op} = require('sequelize')
 
 const createGame = async (name, description,releaseDate, parent_platforms,image,rating,genres) => {
-  if (
-    !name ||
-    !description ||
-    !releaseDate ||
-    !parent_platforms ||
-    !image ||
-    !rating
-  )
+  if (!name || !description || !releaseDate || !parent_platforms || !image || !rating) {
     return res.status(400).send("Faltan datos");
+  }
   // Transformación del nombre
   const formattedName = name
     .toLowerCase()
@@ -24,21 +18,23 @@ const createGame = async (name, description,releaseDate, parent_platforms,image,
     where: { name: { [Op.iLike]: `%${formattedName}%` } },
   });
 
-  if (game) throw new Error(`El juego ya fue creado, su id es ${game.id}`);
+  if (game) {
+    return { message: `El juego ya fue creado, su id es ${game.id}`, existingGame: game  };
+  } else {
+    const newGame = await Videogame.create({
+      name: formattedName,
+      description,
+      parent_platforms,
+      image,
+      releaseDate,
+      rating,
+    });
+    // Esto me relaciona el videojuego con el género mediante la tabla intermedia
+    await newGame.addGenre(genres);
+  
+    return newGame;
+  }
 
-  const newGame = await Videogame.create({
-    name: formattedName,
-    description,
-    parent_platforms,
-    image,
-    releaseDate,
-    rating,
-  });
-
-  // Esto me relaciona el videojuego con el género mediante la tabla intermedia
-  await newGame.addGenre(genres);
-
-  return newGame;
 };
 
 module.exports = {createGame};

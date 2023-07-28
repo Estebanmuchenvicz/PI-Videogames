@@ -15,9 +15,11 @@ import {
   FILTER_GENRE,
   FILTER_ORDER,
   FILTER_PLATFORM,
-  FILTER_RATING
+  FILTER_RATING,
+  DELETE_GAME
 } from "./actions-type";
 import axios from "axios";
+import Swal from 'sweetalert2'
 
 //GETS GAMES
 export const getGames = () => {
@@ -60,6 +62,50 @@ export const getDetails = (id) => {
 export const clearDetails = () => ({
   type: CLEAR_GAME_DETAILS,
 });
+
+
+//DELETE GAME
+
+export const deleteGame = (id) => {
+  const url = `/games/delete/${id}`;
+
+  return async (dispatch) => {
+    try {
+      const response = await axios.delete(url);
+      if (response.data.message) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Éxito',
+          text: response.data.message,
+          timer: 3000,
+          timerProgressBar: true,
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+        });
+      }
+      // Solo si la respuesta contiene un mensaje de éxito, se dispara la acción DELETE_GAME
+      return dispatch({
+        type: DELETE_GAME,
+      });
+    } catch (error) {
+      if (error.response && error.response.data && error.response.data.message) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: error.response.data.message,
+        });
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Error al eliminar el favorito',
+        });
+      }
+    }
+  };
+};
+
 
 //GET GENRES
 export const getGenres = () => {
@@ -133,17 +179,32 @@ export const createGame = ( game ) => {
   return async function( dispatch ) {
       try {
         const response = await axios.post( url, game)
-          const message =  response.data.menssage
-          alert(message) 
+        if (response.data.message) {
+          Swal.fire({
+            icon: 'success',
+            text: response.data.message,
+          });
+        }
+        if (response.data.error) {
+          Swal.fire({
+            icon: 'error',
+            text: response.data.error,
+          });
+        }
+
           return dispatch({ 
               type: POST_GAME,
               
           })
       } catch (error) {
-        dispatch({
-          type: SEARCH_GAMES_FAILURE,
-          payload: error.message,
-        });
+        if (error.response && error.response.data && error.response.data.message) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: error.response.data.message,
+          });
+        } 
+        
       }
   }
 };

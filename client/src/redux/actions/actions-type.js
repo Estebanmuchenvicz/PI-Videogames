@@ -21,3 +21,6 @@ export const FILTER_PLATFORM = 'FILTER_PLATFORM'
 export const FILTER_CREATED = 'FILTER_CREATED'
 export const FILTER_ORDER = 'FILTER_ORDER'
 export const FILTER_RATING = 'FILTER_RATING'
+
+//DELETE
+export const DELETE_GAME     = "DELETE_GAME";

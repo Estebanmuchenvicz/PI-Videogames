@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {getGenres, createGame} from '../../redux/actions/actions';
 import styles from './create.module.css';
-import { validateGame } from '../../utils/validate';
-import addGame from '../../img/addGame.png'
+import validateGame  from '../../utils/validate';
+
 
 function CreateGame() {
     const initState = {
@@ -26,12 +26,14 @@ function CreateGame() {
     rating:"",
     genres:""});
 
+    
+
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getGenres())
     },[dispatch])
     const genres = useSelector(state => state.genresFilter)
-    console.log(newGame.genres);
+    // console.log(newGame);
     const [ platformsOptions] = useState([
         "Android", 
         "Nintendo", 
@@ -43,10 +45,17 @@ function CreateGame() {
 
 
     const handleChange = (event) => {
-        const { name, value } = event.target
-        const parsedValue = name === 'rating' ? parseFloat(value) : value;
-        setNewGame({ ...newGame, [name]: parsedValue })
-        setErrors(validateGame({ ...newGame, [name]: parsedValue }));
+        const { name, value } = event.target;
+        setNewGame((prevGame) => ({
+          ...prevGame,
+          [name]: name === 'rating' ? parseFloat(value) : value,
+        }));
+    
+        const validationError = validateGame({ ...newGame, [name]: value });
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          [name]: validationError[name],
+        }));
           
       }
 
@@ -54,15 +63,18 @@ function CreateGame() {
     const handleSubmit = (event) => {
         event.preventDefault()
   // Validar el juego
-  const validationErrors = validateGame(newGame);
+const validationErrors = validateGame(newGame);
 
-  // Actualizar los errores
-  setErrors(validationErrors);
+//   // Actualizar los errores
+setErrors(validationErrors);
+console.log(errors);
 
   // Si no hay errores, enviar los datos al reducer
-  if (Object.keys(errors).length !== 0) {
+  const isValidForm = Object.values(validationErrors).every((error) => error === "");
+  if (isValidForm) {
     const genreIds = newGame.genres.map((genre) => genre.id);
     const gameData = { ...newGame, genres: genreIds };
+     console.log(gameData);
     dispatch(createGame(gameData));
     setNewGame(initState)
   }
@@ -116,7 +128,7 @@ function CreateGame() {
     // setPlatformSelect(platformSelect.filter((platform) => platform !== value));
   };
 
-  const [rating, setRating] = useState(0);
+  
 
 
   return (
@@ -179,10 +191,10 @@ function CreateGame() {
           min={0}
           max={5}
           step={0.5}
-          onChange={(e) => setRating(parseFloat(e.target.value))}
-          value={rating}
+          onChange={handleChange}
+          value={newGame.rating}
         />
-        <span>{rating}</span>
+        <span>{newGame.rating}</span>
                 {errors.rating && <p className={styles.error}>{errors.rating}</p>}
             </div>
             <div>

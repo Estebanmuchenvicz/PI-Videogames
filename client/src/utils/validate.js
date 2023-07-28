@@ -1,4 +1,4 @@
-export const validateGame = ({
+const validateGame = ({
     name,
     description,
     parent_platforms,
@@ -8,7 +8,7 @@ export const validateGame = ({
     genres,
     
   }) => {
-    const error = { status: false }
+    const error = { }
   
     if (name.split(' ').length > 15) {
       error.name = 'El nombre debe tener menos de 15 palabras.'
@@ -18,6 +18,8 @@ export const validateGame = ({
   
     if (!name.length) {
       error.name = 'El nombre no puede estar vacía.'
+    } else{
+      error.name = ''
     }
     
     if (!description) {
@@ -44,7 +46,7 @@ export const validateGame = ({
       error.parent_platforms ='';
     }
 
-    if (!image){
+    if (!image.length){
       error.image = 'Se debe ingresar una url hacia una imagen.'
     }else{error.image = ''}
   
@@ -52,13 +54,17 @@ export const validateGame = ({
       error.image = 'Se debe ingresar una url hacia una imagen.'
     }else{error.image = ''}
   
-    if (!releaseDate.length) error.releaseDate = 'Elija una fecha.'
+    if (!releaseDate.length) {error.releaseDate = 'Elija una fecha.'
+  }else{
+    error.releaseDate = ''
+  }
   
-    if (!/^\d+(\.\d{1,2})?$|^\d+\.?$/.test(rating))
-      error.rating = 'El rating puede tener hasta 2 decimales.'
+
       
-    if (rating < 0 || rating > 5)
-      error.rating = 'El rating tiene que estar entre 0 y 5.'
+    if (rating < 0 || rating > 5){error.rating = 'El rating tiene que estar entre 0 y 5.'
+  } else{
+    error.rating =''
+  }
   
     if (!genres.length) {
       error.genres = 'Debe elegir al menos un genero.'
@@ -66,8 +72,10 @@ export const validateGame = ({
       error.genres = ''
     }
   
-    if (Object.keys(error).length >= 1) error.status = true
+    
   
     
     return error
   }
+
+  export default validateGame;
