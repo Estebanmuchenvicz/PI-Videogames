@@ -67,7 +67,7 @@ export const clearDetails = () => ({
 //DELETE GAME
 
 export const deleteGame = (id) => {
-  const url = `/games/delete/${id}`;
+  const url = `/videogames/delete/${id}`;
 
   return async (dispatch) => {
     try {
@@ -75,13 +75,7 @@ export const deleteGame = (id) => {
       if (response.data.message) {
         Swal.fire({
           icon: 'success',
-          title: 'Éxito',
           text: response.data.message,
-          timer: 3000,
-          timerProgressBar: true,
-          toast: true,
-          position: 'top-end',
-          showConfirmButton: false,
         });
       }
       // Solo si la respuesta contiene un mensaje de éxito, se dispara la acción DELETE_GAME
@@ -99,7 +93,7 @@ export const deleteGame = (id) => {
         Swal.fire({
           icon: 'error',
           title: 'Error',
-          text: 'Error al eliminar el favorito',
+          text: 'Error al eliminar el videojuego',
         });
       }
     }
@@ -245,3 +239,40 @@ export const filterRating = (payload) =>{
     payload
   }
 }
+
+//DELETE
+
+
+
+// export const deleteGame = (id) => {
+//   const url = `/videogames/delete/${id}`;
+//   return async function (dispatch) {
+//     try {
+//       const response = await axios.delete(url);
+//       if (response.data.message) {
+//         Swal.fire({
+//           icon: 'success',
+//           text: response.data.message,
+//         });
+//       }
+//       if (response.data.error) {
+//         Swal.fire({
+//           icon: 'error',
+//           text: response.data.error,
+//         });
+//       }
+
+//       dispatch({
+//         type: DELETE_GAME,
+//       });
+//     } catch (error) {
+//       if (error.response && error.response.data && error.response.data.error) {
+//         Swal.fire({
+//           icon: 'error',
+//           title: 'Error',
+//           text: error.response.data.error,
+//         });
+//       }
+//     }
+//   };
+// };

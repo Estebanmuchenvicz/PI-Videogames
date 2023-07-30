@@ -1,21 +1,27 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, NavLink } from "react-router-dom";
-import { getDetails, clearDetails } from "../../redux/actions/actions";
+import { getDetails, clearDetails, deleteGame } from "../../redux/actions/actions";
 import style from "./detail.module.css";
 import Loading from "../../components/Loanding/Loading";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
+import { MdOutlineDeleteForever} from "react-icons/md";
+import Swal from 'sweetalert2';
+import { useNavigate } from "react-router-dom";
+
 
 function Detail() {
   //extrayendo el id de la url
   const { id } = useParams();
-  const dispacht = useDispatch();
+  const dispatch = useDispatch();
   const detail = useSelector((state) => state.gameDetails);
+  const [isDeleted, setIsDeleted] = useState(false);
+  const navigate = useNavigate()
   
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     let isMounted = true;
-    dispacht(getDetails(id))
+    dispatch(getDetails(id))
       .then(() => {
         if (isMounted) {
           setLoading(false);
@@ -28,9 +34,9 @@ function Detail() {
       });
     return () => {
       isMounted = false;
-      dispacht(clearDetails());
+      dispatch(clearDetails());
     };
-  }, [dispacht, id]);
+  }, [dispatch, id]);
 
   //Logica separar plataforms
   const platforms = (platforms) => {
@@ -82,6 +88,45 @@ function Detail() {
   return starsArray;
   };
 
+//eliminar
+  const handleDelete = async (id) => {
+    // Mostrar el diálogo de confirmación usando sweetalert2
+    const result = await Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Una vez eliminado, no podrás recuperar este videojuego.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar',
+    });
+  
+    // Si el usuario hace clic en "Sí, eliminar", se procede a eliminar el videojuego
+    if (result.isConfirmed === true) {
+      console.log(result.isConfirmed);
+      try {
+        // Llamar a la acción deleteGame(id) para eliminar el videojuego
+        dispatch(deleteGame(id));
+
+        setIsDeleted(true);
+
+        // Redireccionar a la página de inicio después de 1.5 segundos (1500 ms)
+        setTimeout(() => {
+          navigate('/home'); // Utilizar navigate en lugar de history.push
+        }, 1500);
+      
+      } catch (error) {
+        // Manejar errores en caso de que ocurra un problema al eliminar el videojuego
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'No se pudo eliminar el videojuego.',
+        });
+      }
+    }
+  };
+
   return (
     <div className={style.containeDetail}>
       <div className={style.container}>
@@ -123,6 +168,7 @@ function Detail() {
             <h2 className={style.genres}>{genres(detail?.genres)}</h2>
           </div>
         </div>
+        {detail?.created === true ? <MdOutlineDeleteForever type="button" className={style.btnDelete} onClick={() => handleDelete(id)}/> : ""}
       </div>
 
       <div>

@@ -14,7 +14,8 @@ import {
   FILTER_GENRE,
   FILTER_ORDER,
   FILTER_PLATFORM,
-  FILTER_RATING
+  FILTER_RATING,
+  DELETE_GAME
 } from "../actions/actions-type";
 
 const initialState = {
@@ -54,6 +55,9 @@ const reducer = (state = initialState, { type, payload }) => {
     case GET_GENRES:return{
         ...state,
         genresFilter:payload,
+    };
+    case DELETE_GAME:return{
+      ...state,
     };
     case GET_GENRES_FAILURE: return{
         ...state,

@@ -45,20 +45,13 @@ function CreateGame() {
 
 
     const handleChange = (event) => {
-        const { name, value } = event.target;
-        setNewGame((prevGame) => ({
-          ...prevGame,
-          [name]: name === 'rating' ? parseFloat(value) : value,
-        }));
-    
-        const validationError = validateGame({ ...newGame, [name]: value });
-        setErrors((prevErrors) => ({
-          ...prevErrors,
-          [name]: validationError[name],
-        }));
-          
-      }
-
+      const { name, value } = event.target
+      const parsedValue = name === 'rating' ? parseFloat(value) : value;
+      setNewGame({ ...newGame, [name]: parsedValue })
+      setErrors(validateGame({ ...newGame, [name]: parsedValue }));
+        
+    }
+    console.log(newGame.rating);
           // Envia los datos al reducer
     const handleSubmit = (event) => {
         event.preventDefault()

@@ -160,6 +160,13 @@ color: white;
 color: yellow;
 }
 
+.btnDelete{
+  color: #f34444;
+  font-size: 45px;
+  margin: 15px;
+  cursor: pointer;
+}
+
 
 
 
